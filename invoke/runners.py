@@ -567,7 +567,7 @@ class Runner(object):
         # (which may be waiting for user input). Since most WatcherError
         # situations lack a useful exit code anyways, skipping this doesn't
         # really hurt any.
-        exited = None if watcher_errors else self.returncode()
+        exited = 0 if watcher_errors else self.returncode()
         # TODO: as noted elsewhere, I kinda hate this. Consider changing
         # generate_result()'s API in next major rev so we can tidy up.
         result = self.generate_result(
